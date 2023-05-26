@@ -4,6 +4,12 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+pywhatkit = "*"
+datetime = "*"
+wikipedia = "*"
+beautifulsoup4 = "*"
+pyowm = "*"
+wikipediaapi = "*"
 
 [dev-packages]
 
