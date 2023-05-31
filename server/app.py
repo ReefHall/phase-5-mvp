@@ -5,7 +5,12 @@ import datetime
 import wikipedia
 import requests
 import pyowm
-import wikipediaapi
+import pyjokes
+import os
+from twilio.rest import Client
+from dotenv import load_dotenv
+load_dotenv()
+print(os.environ['ACCOUNT_SID'])
 
 
 
@@ -69,6 +74,7 @@ def test5():
     return {'person': newInfo}
 
 
+
         
 
         
@@ -107,6 +113,37 @@ def test6():
     return {'temp': temp,
             'temp_high': temp_high,
             'temp_min': temp_min}
+
+@app.get('/jokes')
+def test7():
+    joke = pyjokes.get_joke()
+
+    return {'joke': joke}
+
+@app.get('/sleep')
+def test8():
+     os.system("pmset sleepnow")
+     return {'test': 'test'}
+
+
+@app.post('/text')
+def test9():
+    print(request.json)
+    message = request.json['message']
+    number = request.json['digits']
+    toNumber = f'+1{number}'
+    account_sid = os.environ['ACCOUNT_SID']
+    auth_token =  os.environ['AUTH_TOKEN']
+    client = Client(account_sid, auth_token)
+    message = client.messages.create(
+         body= message,
+         from_='+18668755347',
+         to= toNumber
+     )
+
+    print(message.sid)
+
+    return {'test': 'test'}
 
 
 
