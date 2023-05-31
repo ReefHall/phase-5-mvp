@@ -5,7 +5,7 @@ function NavBar({rate, setRate, pitch, setPitch, setting, setSetting, gearBtn}) 
     <div className='nav'>
         
 
-            <label for= 'rate' >Rate</label>
+            <label htmlFor = 'rate' >Rate</label>
             <input name='rate' className='input'  type='range' value ={rate} step='.1' max='2' min='.1' onChange={(e)=> setRate(e.target.value)}></input>
             <label for= 'pitch'>Pitch</label>
             <input name='pitch' className='input' type='range' value={pitch} step='.1' max='2' min='0' onChange={(e)=> setPitch(e.target.value)}></input>
